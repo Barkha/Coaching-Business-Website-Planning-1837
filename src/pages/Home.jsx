@@ -58,10 +58,10 @@ const Home = () => {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-                Transform Your Life with Expert Coaching
+                Empowering Women in Tech to Take the Stage at Conferences
               </h1>
               <p className="text-xl mb-8 text-blue-100">
-                Unlock your potential with personalized coaching programs designed to help you achieve your goals and create lasting success.
+                Unlock your potential with personalized public speaking programs designed to elevate your confidence, showcase your expertise and grow your network.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -104,9 +104,10 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose CoachPro?</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose WiTVoices?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We provide comprehensive coaching solutions tailored to your unique needs and goals.
+              Do you long for a refreshing change that brings diversity and unique perspectives to these industry gatherings? <br/>
+              We hear you, loud and clear. Introducing our revolutionary solution: an initiative aimed at empowering more women to take the stage as speakers at tech events worldwide.
             </p>
           </motion.div>
 
