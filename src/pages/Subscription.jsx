@@ -13,11 +13,11 @@ const Subscription = () => {
     {
       id: 'basic',
       name: 'Basic Coaching',
-      monthlyPrice: 99,
-      annualPrice: 990,
-      description: 'Perfect for individuals starting their coaching journey',
+      monthlyPrice: 97,
+      annualPrice: 997,
+      description: 'Perfect for individuals starting their speaking journey',
       features: [
-        'Monthly group coaching sessions',
+        'Weekly group coaching sessions',
         'Email support within 48 hours',
         'Access to resource library',
         'Goal tracking tools',
@@ -29,11 +29,11 @@ const Subscription = () => {
     {
       id: 'professional',
       name: 'Professional Coaching',
-      monthlyPrice: 199,
-      annualPrice: 1990,
+      monthlyPrice: 197,
+      annualPrice: 1997,
       description: 'Ideal for professionals seeking accelerated growth',
       features: [
-        'Bi-weekly 1-on-1 coaching sessions',
+        'Weekly group coaching sessions',
         'Priority email & phone support',
         'Custom action plans',
         'Progress analytics dashboard',
@@ -47,11 +47,11 @@ const Subscription = () => {
     {
       id: 'premium',
       name: '1-on-1 Premium',
-      monthlyPrice: 399,
-      annualPrice: 3990,
+      monthlyPrice: 497,
+      annualPrice: 4997,
       description: 'Maximum support for serious achievers',
       features: [
-        'Weekly 1-on-1 coaching sessions',
+        'Bi-Weekly 1-on-1 coaching sessions',
         '24/7 priority support',
         'Completely personalized curriculum',
         'Unlimited resource access',
@@ -119,7 +119,7 @@ const Subscription = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-accent-300 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -128,22 +128,22 @@ const Subscription = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-5xl font-bold text-primary-600 mb-6">
             Choose Your Coaching Program
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-primary-600 max-w-3xl mx-auto mb-8">
             Invest in yourself with our proven coaching programs. Join thousands of successful individuals who have transformed their lives and careers.
           </p>
           
           {/* Billing Toggle */}
           <div className="flex items-center justify-center mb-8">
-            <span className={`mr-3 ${!isAnnual ? 'text-gray-900 font-semibold' : 'text-gray-500'}`}>
+            <span className={`mr-3 ${!isAnnual ? 'text-primary-900 font-semibold' : 'text-primary-500'}`}>
               Monthly
             </span>
             <button
               onClick={() => setIsAnnual(!isAnnual)}
               className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                isAnnual ? 'bg-blue-600' : 'bg-gray-300'
+                isAnnual ? 'bg-primary-600' : 'bg-primary-300'
               }`}
             >
               <span
@@ -152,7 +152,7 @@ const Subscription = () => {
                 }`}
               />
             </button>
-            <span className={`ml-3 ${isAnnual ? 'text-gray-900 font-semibold' : 'text-gray-500'}`}>
+            <span className={`ml-3 ${isAnnual ? 'text-primary-900 font-semibold' : 'text-primary-500'}`}>
               Annual
             </span>
             {isAnnual && (
@@ -173,31 +173,31 @@ const Subscription = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className={`relative bg-white rounded-2xl shadow-lg border-2 transition-all duration-300 ${
                 plan.popular
-                  ? 'border-blue-500 transform scale-105'
+                  ? 'border-primary-500 transform scale-105'
                   : selectedPlan === plan.id
-                  ? 'border-blue-300'
-                  : 'border-gray-200'
+                  ? 'border-primary-300'
+                  : 'border-primary-200'
               } hover:shadow-xl cursor-pointer`}
               onClick={() => handlePlanSelect(plan.id)}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                  <span className="bg-accent-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
                     Most Popular
                   </span>
                 </div>
               )}
 
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                <p className="text-gray-600 mb-6">{plan.description}</p>
+                <h3 className="text-2xl font-bold text-primary-900 mb-2">{plan.name}</h3>
+                <p className="text-primary-600 mb-6">{plan.description}</p>
 
                 <div className="mb-6">
                   <div className="flex items-baseline">
-                    <span className="text-5xl font-bold text-gray-900">
+                    <span className="text-5xl font-bold text-primary-900">
                       ${getPrice(plan)}
                     </span>
-                    <span className="text-gray-500 ml-2">
+                    <span className="text-primary-500 ml-2">
                       /{isAnnual ? 'year' : 'month'}
                     </span>
                   </div>
@@ -212,7 +212,7 @@ const Subscription = () => {
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start">
                       <SafeIcon icon={FiCheck} className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-600">{feature}</span>
+                      <span className="text-primary-600">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -220,8 +220,8 @@ const Subscription = () => {
                 <button
                   className={`w-full py-4 px-6 rounded-lg font-semibold transition-colors ${
                     selectedPlan === plan.id
-                      ? 'bg-blue-600 text-white hover:bg-blue-700'
-                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                      ? 'bg-accent-500 text-white hover:bg-primary-500'
+                      : 'bg-primary-100 text-primary-900 hover:bg-primary-200'
                   }`}
                 >
                   {selectedPlan === plan.id ? 'Selected' : 'Select Plan'}
@@ -238,17 +238,17 @@ const Subscription = () => {
           transition={{ duration: 0.6 }}
           className="mb-20"
         >
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
-            Why Choose Our Coaching Programs?
+          <h2 className="text-4xl font-bold text-center text-primary-600 mb-12">
+            Why Choose Our Speaker Programs?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
               <div key={index} className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <SafeIcon icon={benefit.icon} className="h-8 w-8 text-blue-600" />
+                <div className="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <SafeIcon icon={benefit.icon} className="h-8 w-8 text-primary-600" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
+                <h3 className="text-lg font-semibold text-primary-600 mb-2">{benefit.title}</h3>
+                <p className="text-primary-600">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -261,7 +261,7 @@ const Subscription = () => {
           transition={{ duration: 0.6 }}
           className="mb-20"
         >
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-4xl font-bold text-center text-primary-600 mb-12">
             Success Stories
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -274,8 +274,8 @@ const Subscription = () => {
                     className="w-12 h-12 rounded-full mr-4"
                   />
                   <div>
-                    <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-gray-500">{testimonial.role}</p>
+                    <h4 className="font-semibold text-primary-900">{testimonial.name}</h4>
+                    <p className="text-primary-500">{testimonial.role}</p>
                   </div>
                 </div>
                 <div className="flex mb-4">
@@ -283,7 +283,7 @@ const Subscription = () => {
                     <SafeIcon key={i} icon={FiStar} className="h-5 w-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600">"{testimonial.content}"</p>
+                <p className="text-primary-600">"{testimonial.content}"</p>
               </div>
             ))}
           </div>
@@ -294,16 +294,16 @@ const Subscription = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-blue-600 rounded-2xl p-12 text-center text-white"
+          className="bg-primary-600 rounded-2xl p-12 text-center text-white"
         >
           <h2 className="text-4xl font-bold mb-6">Ready to Get Started?</h2>
-          <p className="text-xl mb-8 text-blue-100">
+          <p className="text-xl mb-8 text-primary-100">
             Join our community of achievers and start your transformation today.
           </p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+          <button className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-primary-100 transition-colors">
             Start Your {plans.find(p => p.id === selectedPlan)?.name} Journey
           </button>
-          <p className="text-blue-100 mt-4">
+          <p className="text-primary-100 mt-4">
             30-day money-back guarantee • Cancel anytime • No setup fees
           </p>
         </motion.div>

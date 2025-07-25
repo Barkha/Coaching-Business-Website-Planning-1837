@@ -7,45 +7,49 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['Poppins', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        heading: ['Urbanist', 'sans-serif'],
+        body: ['Josefin Sans', 'sans-serif'],
       },
       colors: {
         primary: {
-          50: '#EFEBFF',
-          100: '#DFD8FF',
-          200: '#C5B8FF',
-          300: '#AB97FF',
-          400: '#917CFF',
-          500: '#7B61FF', // Main primary color
-          600: '#624ECC',
-          700: '#4A3A99',
-          800: '#312766',
-          900: '#191333',
+          50: '#f5f2f8',
+          100: '#cdc2dd',
+          200: '#a691c2',
+          300: '#7e61a6',
+          400: '#57308b',
+          500: '#2f0070', // Main primary color
+          600: '#26005b',
+          700: '#1d0045',
+          800: '#140030',
+          900: '#020006',
         },
         secondary: {
-          50: '#E6F8FF',
-          100: '#CCF2FF',
-          200: '#99E5FF',
-          300: '#66D9FF',
-          400: '#33CBFF',
-          500: '#00C2FF', // Main secondary color
-          600: '#009BCC',
-          700: '#007499',
-          800: '#004D66',
-          900: '#002733',
+          50: '#f9f5ff',
+          100: '#e4d1ff',
+          200: '#cfacff',
+          300: '#ba88ff',
+          400: '#a563ff',
+          500: '#903fff', // Main secondary color
+          600: '#7533cf',
+          700: '#59279e',
+          800: '#3e1b6e',
+          900: '#230f3d',
         },
         accent: {
-          50: '#FFEDED',
-          100: '#FFDBDB',
-          200: '#FFB7B7',
-          300: '#FF9494',
-          400: '#FF7575',
-          500: '#FF5757', // Main accent color
-          600: '#CC4545',
-          700: '#993434',
-          800: '#662323',
-          900: '#331111',
+          50: '#fef5f5',
+          100: '#fcd0d0',
+          200: '#f9acac',
+          300: '#ffcfbe', // powder puff pink
+          400: '#f46262',
+          500: '#f23d3d', // Main accent color
+          600: '#c43131',
+          700: '#962626',
+          800: '#681a1a',
+          900: '#3a0f0f',
+        },
+        color: {
+          light: "#FFCFBE",
+          dark: "#2f0070"
         },
       },
       animation: {
@@ -63,10 +67,10 @@ export default {
         },
       },
       backgroundImage: {
-        'gradient-brand': 'linear-gradient(to right, #7B61FF, #00C2FF)',
+        'gradient-brand': 'linear-gradient(to right, #2f0070, #903FFF)',
       },
       boxShadow: {
-        'brand': '0 4px 14px 0 rgba(123, 97, 255, 0.2)',
+        'brand': '0 4px 14px 0 rgba(51, 0, 102, 0.2)',
       },
     },
   },

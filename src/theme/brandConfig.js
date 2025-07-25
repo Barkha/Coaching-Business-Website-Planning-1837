@@ -8,8 +8,8 @@ export const brandConfig = {
   // Colors - Primary palette
   colors: {
     primary: {
-      main: "#2f0070",  // Deep purple
-      light: "#7e61a6",
+      main: "#2f0070",  // deep purple
+      light: "#2f0070",
       dark: "#1d0045",
       contrastText: "#FFFFFF"
     },

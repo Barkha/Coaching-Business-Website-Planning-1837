@@ -13,18 +13,23 @@ const Home = () => {
   const features = [
     {
       icon: FiTarget,
-      title: "Goal-Oriented Approach",
-      description: "We help you set clear, achievable goals and create actionable plans to reach them."
+      title: "Establish Credibility",
+      description: "Being on stage gives you instant credibility. This will improve your ability to communicate, and take questions: perfect for your next job or promotion!"
     },
     {
       icon: FiUsers,
-      title: "Expert AI Coaching",
-      description: "Our advanced AI coaches provide personalized guidance tailored to your unique needs and challenges."
+      title: "Elevate your Network",
+      description: "We all can get lost in our bubble. Speaking at events connects you with a lot of Professionals from different companies - and expand your bubble!"
+    },
+    {
+      icon: FiStar,
+      title: "Increase Visibility",
+      description: "Looking to increase your impact? Get that Promotion? Land that new job? Get funding for your pet project? Find collaborators? Public Speaking can get you there."
     },
     {
       icon: FiTrendingUp,
-      title: "Proven Results",
-      description: "Track your progress with measurable outcomes and continuous improvement strategies."
+      title: "Personal Development",
+      description: "Want to discover YOUR limiting beliefs? Speaking can do that. Want to step out of your comfort zone? Speaking will do that. Want to learn to communicate better? Speaking will help you with that."
     }
   ];
 
@@ -52,7 +57,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-500 to-secondary-400 text-white py-20">
+      <section className="bg-gradient-to-br from-primary-500 to-secondary-500 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -61,15 +66,15 @@ const Home = () => {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-                AI-Powered Career Coaching for Tech Professionals
+                Empowering Women in Tech to Take the Stage at Conferences
               </h1>
               <p className="text-xl mb-8 text-blue-100">
-                Unlock your potential with personalized AI coaching designed to elevate your skills, advance your career, and help you achieve your professional goals.
+                Unlock your potential with personalized public speaking training designed to elevate your skills, advance your career, and help you achieve your professional goals.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/subscription"
-                  className="bg-white text-primary-500 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center"
+                  className="bg-accent-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-600 transition-colors inline-flex items-center justify-center"
                 >
                   Start Your Journey
                   <SafeIcon icon={FiArrowRight} className="ml-2 h-5 w-5" />
@@ -89,9 +94,9 @@ const Home = () => {
               className="relative"
             >
               <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="AI-powered coaching session"
-                className="rounded-lg shadow-2xl"
+                src="/hero-1.png"
+                alt="WitVoices: Find your voice!"
+                className="rounded-lg"
               />
             </motion.div>
           </div>
@@ -99,7 +104,7 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-accent-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -107,27 +112,27 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose {theme.name}?</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Tired of generic advice that doesn't address your specific career challenges?
-              <br />
-              Our AI-powered platform delivers personalized coaching that evolves with you, providing guidance when you need it most.
+            <h2 className="text-4xl font-bold text-primary-600 mb-4">Why Choose {theme.name}?</h2>
+            <p className="text-xl text-primary-600 max-w-3xl mx-auto">
+              Do you long for a refreshing change that brings diversity and unique perspectives to these industry gatherings?
+              <br/>
+              We hear you, loud and clear. Introducing our revolutionary solution: an initiative aimed at empowering more women to take the stage as speakers at tech events worldwide.
             </p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-accent-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="bg-primary-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                   <SafeIcon icon={feature.icon} className="h-8 w-8 text-primary-500" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="text-xl font-semibold text-primary-600 mb-4">{feature.title}</h3>
+                <p className="text-primary-600">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -135,7 +140,7 @@ const Home = () => {
       </section>
 
       {/* Programs Preview */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-br from-primary-500 to-secondary-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -143,8 +148,8 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Choose Your Program</h2>
-            <p className="text-xl text-gray-600">
+            <h2 className="text-4xl font-bold text-accent-50 mb-4">Choose Your Program</h2>
+            <p className="text-xl text-accent-50">
               Select the AI coaching program that best fits your needs and goals.
             </p>
           </motion.div>
@@ -162,7 +167,7 @@ const Home = () => {
               },
               {
                 name: "Professional Growth",
-                price: "$99",
+                price: "$97",
                 features: [
                   "Unlimited AI coaching",
                   "Leadership skill development",
@@ -186,21 +191,21 @@ const Home = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`bg-white p-8 rounded-lg shadow-lg border-2 ${
+                className={`bg-accent-50 p-8 rounded-lg shadow-lg border-2 ${
                   index === 1
                     ? 'border-primary-500 transform scale-105'
                     : 'border-gray-200'
                 }`}
               >
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{program.name}</h3>
+                <h3 className="text-2xl font-bold text-primary-600 mb-2">{program.name}</h3>
                 <div className="text-4xl font-bold text-primary-500 mb-6">
-                  {program.price}<span className="text-lg text-gray-500">/month</span>
+                  {program.price}<span className="text-lg text-primary-400">/month</span>
                 </div>
                 <ul className="space-y-3 mb-8">
                   {program.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center">
                       <SafeIcon icon={FiCheck} className="h-5 w-5 text-green-500 mr-3" />
-                      <span className="text-gray-600">{feature}</span>
+                      <span className="text-primary-600">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -208,8 +213,8 @@ const Home = () => {
                   to="/subscription"
                   className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors inline-block text-center ${
                     index === 1
-                      ? 'bg-primary-500 text-white hover:bg-primary-600'
-                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                      ? 'bg-accent-500 text-white hover:bg-primary-600'
+                      : 'bg-secondary-300 text-gray-900 hover:bg-gray-200'
                   }`}
                 >
                   Get Started
@@ -221,7 +226,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-accent-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
