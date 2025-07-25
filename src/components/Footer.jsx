@@ -65,7 +65,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center">
                 <SafeIcon icon={FiMail} className="h-5 w-5 text-primary-300 mr-3" />
-                <span className="text-gray-300">hello@questera.ai</span>
+                <span className="text-gray-300">hello@WitVoices.ai</span>
               </div>
               <div className="flex items-center">
                 <SafeIcon icon={FiPhone} className="h-5 w-5 text-primary-300 mr-3" />

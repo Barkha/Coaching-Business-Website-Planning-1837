@@ -38,7 +38,7 @@ const Home = () => {
     {
       name: "Michael Chen",
       role: "Product Manager",
-      content: "Questera helped me develop leadership skills I never knew I had. The personalized feedback was exactly what I needed to advance my career.",
+      content: "WitVoices helped me develop leadership skills I never knew I had. The personalized feedback was exactly what I needed to advance my career.",
       rating: 5
     },
     {

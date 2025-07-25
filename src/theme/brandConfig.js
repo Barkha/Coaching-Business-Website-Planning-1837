@@ -2,36 +2,36 @@
 
 export const brandConfig = {
   // Company info
-  name: "Questera",
-  tagline: "AI-Powered Coaching for Tech Professionals",
+  name: "WitVoices",
+  tagline: "Find Your Voice.",
   
   // Colors - Primary palette
   colors: {
     primary: {
-      main: "#7B61FF",  // Vibrant purple
-      light: "#9F8BFF",
-      dark: "#5A46CC",
+      main: "#2f0070",  // Deep purple
+      light: "#7e61a6",
+      dark: "#1d0045",
       contrastText: "#FFFFFF"
     },
     secondary: {
-      main: "#00C2FF",  // Bright cyan
-      light: "#66D9FF",
-      dark: "#0097CC",
+      main: "#903fff",  // Bright cyan
+      light: "#e4d1ff",
+      dark: "#59279e",
       contrastText: "#FFFFFF"
     },
     accent: {
-      main: "#FF5757",  // Coral red
-      light: "#FF8A8A",
-      dark: "#CC4545",
+      main: "#f23d3d",  // vivaldi red
+      light: "#f9acac",
+      dark: "#c43131",
       contrastText: "#FFFFFF"
     },
     // Neutral palette
     neutral: {
-      black: "#121212",
-      darkGray: "#2D2D2D",
-      gray: "#717171",
-      lightGray: "#E5E5E5",
-      white: "#FFFFFF"
+      black: "#04000a",
+      darkGray: "#343039",
+      gray: "#3d322e",
+      lightGray: "#9e8076",
+      white: "#FFCFBE"
     },
     // Semantic colors
     semantic: {
@@ -42,17 +42,17 @@ export const brandConfig = {
     },
     // Background colors
     background: {
-      default: "#F8F9FC",
+      default: "#FFCFBE",
       paper: "#FFFFFF",
-      dark: "#121212"
+      dark: "#2f0070"
     }
   },
   
   // Typography
   typography: {
     fontFamily: {
-      heading: "'Poppins', sans-serif", // Modern, geometric sans-serif
-      body: "'Inter', sans-serif" // Clean, neutral sans-serif
+      heading: "'urbanist', sans-serif", // Modern, geometric sans-serif
+      body: "'josefina-sans', sans-serif" // Clean, neutral sans-serif
     },
     fontWeights: {
       light: 300,
@@ -66,7 +66,7 @@ export const brandConfig = {
   // Logo
   logo: {
     main: "/logo.svg", // Path to logo
-    alt: "Questera Logo",
+    alt: "WitVoices Logo",
     width: 140,
     height: 40
   },
@@ -98,10 +98,10 @@ export const brandConfig = {
   
   // Social media
   socialMedia: {
-    twitter: "https://twitter.com/questera",
-    linkedin: "https://linkedin.com/company/questera",
-    instagram: "https://instagram.com/questera",
-    facebook: "https://facebook.com/questera"
+    twitter: "https://twitter.com/WitVoices",
+    linkedin: "https://linkedin.com/company/WitVoices",
+    instagram: "https://instagram.com/WitVoices",
+    facebook: "https://facebook.com/WitVoices"
   }
 };
 
