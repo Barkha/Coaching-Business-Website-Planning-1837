@@ -6,7 +6,7 @@ const blogPosts = [
   {
     slug: '10-essential-leadership-skills',
     title: '10 Essential Leadership Skills for the Modern Workplace',
-    excerpt: 'Discover the critical leadership competencies that separate great leaders from good ones in today's rapidly evolving business landscape.',
+    excerpt: 'Discover the critical leadership competencies that separate great leaders from good ones in today\'s rapidly evolving business landscape.',
     author: 'Sarah Mitchell',
     authorImage: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
     publishDate: '2024-01-15',
@@ -64,7 +64,7 @@ Developing these ten competencies doesn't happen overnight, but intentional prac
   {
     slug: 'building-high-performance-teams',
     title: 'Building High-Performance Teams in Remote Environments',
-    excerpt: 'Learn proven strategies for creating and managing high-performing remote teams in today's digital workplace.',
+    excerpt: 'Learn proven strategies for creating and managing high-performing remote teams in today\'s digital workplace.',
     author: 'Michael Chen',
     authorImage: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
     publishDate: '2024-01-12',
