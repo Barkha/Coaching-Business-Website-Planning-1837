@@ -7,12 +7,12 @@ const { FiMail, FiPhone, FiMapPin, FiFacebook, FiTwitter, FiLinkedin, FiInstagra
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-violet-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1">
-            <h3 className="text-2xl font-bold text-blue-400 mb-4">CoachPro</h3>
+            <h3 className="text-2xl font-bold text-blue-400 mb-4">WiTVoices</h3>
             <p className="text-gray-300 mb-4">
               Empowering individuals and businesses to reach their full potential through expert coaching and guidance.
             </p>
@@ -53,7 +53,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center">
                 <SafeIcon icon={FiMail} className="h-5 w-5 text-blue-400 mr-3" />
-                <span className="text-gray-300">info@coachpro.com</span>
+                <span className="text-gray-300">info@witvoices.com</span>
               </div>
               <div className="flex items-center">
                 <SafeIcon icon={FiPhone} className="h-5 w-5 text-blue-400 mr-3" />
@@ -69,7 +69,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © 2024 CoachPro. All rights reserved. | Privacy Policy | Terms of Service
+            © 2025 WitVoices. All rights reserved. | Privacy Policy | Terms of Service
           </p>
         </div>
       </div>
