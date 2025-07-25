@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { format } from 'date-fns';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
+import { getAllPosts } from '../utils/markdownUtils';
 
 const { FiCalendar, FiClock, FiUser, FiTag, FiSearch, FiTrendingUp, FiArrowRight } = FiIcons;
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    // Load all blog posts
+    const allPosts = getAllPosts();
+    setPosts(allPosts);
+  }, []);
 
   const categories = [
     { id: 'all', name: 'All Posts' },
@@ -20,109 +28,17 @@ const Blog = () => {
     { id: 'communication', name: 'Communication' }
   ];
 
-  const blogPosts = [
-    {
-      id: 1,
-      title: '10 Essential Leadership Skills for the Modern Workplace',
-      excerpt: 'Discover the critical leadership competencies that separate great leaders from good ones in today\'s rapidly evolving business landscape.',
-      content: 'Full article content here...',
-      category: 'leadership',
-      author: 'Sarah Mitchell',
-      authorImage: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-      publishDate: new Date('2024-01-15'),
-      readTime: '8 min read',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['Leadership', 'Management', 'Skills'],
-      featured: true,
-      slug: '10-essential-leadership-skills-modern-workplace'
-    },
-    {
-      id: 2,
-      title: 'The Science of Productivity: Evidence-Based Strategies That Work',
-      excerpt: 'Explore scientifically-proven methods to boost your productivity and achieve more meaningful results in less time.',
-      content: 'Full article content here...',
-      category: 'productivity',
-      author: 'Emily Rodriguez',
-      authorImage: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-      publishDate: new Date('2024-01-12'),
-      readTime: '6 min read',
-      image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['Productivity', 'Science', 'Efficiency'],
-      featured: false,
-      slug: 'science-of-productivity-evidence-based-strategies'
-    },
-    {
-      id: 3,
-      title: 'Building a Growth Mindset: Your Path to Continuous Improvement',
-      excerpt: 'Learn how to cultivate a growth mindset that will accelerate your personal and professional development journey.',
-      content: 'Full article content here...',
-      category: 'personal',
-      author: 'Michael Chen',
-      authorImage: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-      publishDate: new Date('2024-01-10'),
-      readTime: '7 min read',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['Growth Mindset', 'Personal Development', 'Success'],
-      featured: true,
-      slug: 'building-growth-mindset-continuous-improvement'
-    },
-    {
-      id: 4,
-      title: 'Strategic Communication: How to Influence Without Authority',
-      excerpt: 'Master the art of persuasive communication and learn to influence outcomes even when you don\'t have formal authority.',
-      content: 'Full article content here...',
-      category: 'communication',
-      author: 'David Thompson',
-      authorImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-      publishDate: new Date('2024-01-08'),
-      readTime: '9 min read',
-      image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['Communication', 'Influence', 'Leadership'],
-      featured: false,
-      slug: 'strategic-communication-influence-without-authority'
-    },
-    {
-      id: 5,
-      title: 'The Future of Work: Preparing for Tomorrow\'s Challenges',
-      excerpt: 'Navigate the changing landscape of work and position yourself for success in the future economy.',
-      content: 'Full article content here...',
-      category: 'business',
-      author: 'Jennifer Martinez',
-      authorImage: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-      publishDate: new Date('2024-01-05'),
-      readTime: '10 min read',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['Future of Work', 'Business Strategy', 'Trends'],
-      featured: true,
-      slug: 'future-of-work-preparing-tomorrows-challenges'
-    },
-    {
-      id: 6,
-      title: 'Emotional Intelligence: The Key to Professional Success',
-      excerpt: 'Develop your emotional intelligence to improve relationships, make better decisions, and advance your career.',
-      content: 'Full article content here...',
-      category: 'personal',
-      author: 'Alex Kim',
-      authorImage: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
-      publishDate: new Date('2024-01-03'),
-      readTime: '5 min read',
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['Emotional Intelligence', 'Success', 'Relationships'],
-      featured: false,
-      slug: 'emotional-intelligence-key-professional-success'
-    }
-  ];
-
-  const filteredPosts = blogPosts.filter(post => {
+  const filteredPosts = posts.filter(post => {
     const categoryMatch = selectedCategory === 'all' || post.category === selectedCategory;
-    const searchMatch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                       post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                       post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+    const searchMatch = 
+      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     return categoryMatch && searchMatch;
   });
 
-  const featuredPosts = blogPosts.filter(post => post.featured);
-  const popularPosts = blogPosts.slice(0, 4);
+  const featuredPosts = posts.filter(post => post.featured);
+  const popularPosts = posts.slice(0, 4);
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
@@ -132,290 +48,196 @@ const Blog = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            Insights & Resources
+            Blog & Resources
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Stay ahead with expert insights, practical strategies, and actionable advice to accelerate your personal and professional growth.
+            Insights, tips, and strategies to help you achieve your goals and maximize your potential.
           </p>
         </motion.div>
 
-        {/* Featured Posts */}
-        {featuredPosts.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-16"
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Articles</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {featuredPosts.slice(0, 2).map((post, index) => (
-                <Link
-                  key={post.id}
-                  to={`/blog/${post.slug}`}
-                  className="group bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-                >
-                  <div className="relative">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                        Featured
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center mb-3">
-                      <span className="text-sm font-medium text-blue-600 bg-blue-100 px-2 py-1 rounded">
-                        {categories.find(cat => cat.id === post.category)?.name}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                      {post.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 line-clamp-2">{post.excerpt}</p>
-                    <div className="flex items-center justify-between text-sm text-gray-500">
-                      <div className="flex items-center">
-                        <img
-                          src={post.authorImage}
-                          alt={post.author}
-                          className="w-8 h-8 rounded-full mr-2"
-                        />
-                        <span>{post.author}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <SafeIcon icon={FiCalendar} className="h-4 w-4 mr-1" />
-                        {format(post.publishDate, 'MMM dd, yyyy')}
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-        )}
-
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-3">
-            {/* Search and Filters */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-white rounded-lg shadow-lg p-6 mb-8"
-            >
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex-1 relative">
-                  <SafeIcon icon={FiSearch} className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                  <input
-                    type="text"
-                    placeholder="Search articles..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                </div>
-                <select
-                  value={selectedCategory}
-                  onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  {categories.map(category => (
-                    <option key={category.id} value={category.id}>{category.name}</option>
-                  ))}
-                </select>
-              </div>
-            </motion.div>
-
-            {/* Blog Posts Grid */}
-            <div className="space-y-8">
-              {filteredPosts.map((post, index) => (
-                <motion.article
-                  key={post.id}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-                >
-                  <div className="md:flex">
-                    <div className="md:w-1/3">
-                      <Link to={`/blog/${post.slug}`}>
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-48 md:h-full object-cover hover:scale-105 transition-transform duration-300"
-                        />
-                      </Link>
-                    </div>
-                    <div className="md:w-2/3 p-6">
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-sm font-medium text-blue-600 bg-blue-100 px-2 py-1 rounded">
-                          {categories.find(cat => cat.id === post.category)?.name}
-                        </span>
-                        <div className="flex items-center text-sm text-gray-500">
-                          <SafeIcon icon={FiClock} className="h-4 w-4 mr-1" />
-                          {post.readTime}
-                        </div>
-                      </div>
-                      
-                      <Link to={`/blog/${post.slug}`}>
-                        <h2 className="text-2xl font-semibold text-gray-900 mb-3 hover:text-blue-600 transition-colors">
-                          {post.title}
-                        </h2>
-                      </Link>
-                      
-                      <p className="text-gray-600 mb-4 line-clamp-2">{post.excerpt}</p>
-                      
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {post.tags.map((tag, tagIndex) => (
-                          <span
-                            key={tagIndex}
-                            className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                          <img
-                            src={post.authorImage}
-                            alt={post.author}
-                            className="w-10 h-10 rounded-full mr-3"
-                          />
-                          <div>
-                            <div className="text-sm font-medium text-gray-900">{post.author}</div>
-                            <div className="flex items-center text-xs text-gray-500">
-                              <SafeIcon icon={FiCalendar} className="h-3 w-3 mr-1" />
-                              {format(post.publishDate, 'MMM dd, yyyy')}
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <Link
-                          to={`/blog/${post.slug}`}
-                          className="text-blue-600 hover:text-blue-700 font-medium flex items-center"
-                        >
-                          Read More
-                          <SafeIcon icon={FiArrowRight} className="ml-1 h-4 w-4" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </motion.article>
-              ))}
-            </div>
+        {/* Search and Filters */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-4">
+          <div className="relative flex-1">
+            <SafeIcon icon={FiSearch} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search articles..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
           </div>
-
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-24 space-y-8">
-              {/* Popular Posts */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="bg-white rounded-lg shadow-lg p-6"
+          <div className="flex flex-wrap gap-2">
+            {categories.map(category => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                  selectedCategory === category.id 
+                    ? 'bg-blue-600 text-white' 
+                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                }`}
               >
-                <div className="flex items-center mb-4">
-                  <SafeIcon icon={FiTrendingUp} className="h-5 w-5 text-blue-600 mr-2" />
-                  <h3 className="text-lg font-semibold text-gray-900">Popular Posts</h3>
-                </div>
-                <div className="space-y-4">
-                  {popularPosts.map((post, index) => (
-                    <Link
-                      key={post.id}
-                      to={`/blog/${post.slug}`}
-                      className="block group"
-                    >
-                      <div className="flex items-start">
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-16 h-16 rounded-lg object-cover mr-3 group-hover:scale-105 transition-transform duration-300"
-                        />
-                        <div className="flex-1">
-                          <h4 className="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2">
-                            {post.title}
-                          </h4>
-                          <div className="flex items-center text-xs text-gray-500 mt-1">
-                            <SafeIcon icon={FiCalendar} className="h-3 w-3 mr-1" />
-                            {format(post.publishDate, 'MMM dd')}
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Categories */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="bg-white rounded-lg shadow-lg p-6"
-              >
-                <div className="flex items-center mb-4">
-                  <SafeIcon icon={FiTag} className="h-5 w-5 text-blue-600 mr-2" />
-                  <h3 className="text-lg font-semibold text-gray-900">Categories</h3>
-                </div>
-                <div className="space-y-2">
-                  {categories.filter(cat => cat.id !== 'all').map(category => {
-                    const count = blogPosts.filter(post => post.category === category.id).length;
-                    return (
-                      <button
-                        key={category.id}
-                        onClick={() => setSelectedCategory(category.id)}
-                        className={`w-full text-left px-3 py-2 rounded-lg transition-colors ${
-                          selectedCategory === category.id
-                            ? 'bg-blue-100 text-blue-600'
-                            : 'text-gray-600 hover:bg-gray-100'
-                        }`}
-                      >
-                        <div className="flex justify-between items-center">
-                          <span>{category.name}</span>
-                          <span className="text-sm">({count})</span>
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </motion.div>
-
-              {/* Newsletter Signup */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg p-6 text-white"
-              >
-                <h3 className="text-lg font-semibold mb-3">Stay Updated</h3>
-                <p className="text-blue-100 text-sm mb-4">
-                  Get the latest insights and strategies delivered to your inbox.
-                </p>
-                <div className="space-y-3">
-                  <input
-                    type="email"
-                    placeholder="Your email"
-                    className="w-full px-3 py-2 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
-                  />
-                  <button className="w-full bg-white text-blue-600 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                    Subscribe
-                  </button>
-                </div>
-              </motion.div>
-            </div>
+                {category.name}
+              </button>
+            ))}
           </div>
         </div>
+
+        {/* Featured Posts */}
+        {featuredPosts.length > 0 && (
+          <div className="mb-16">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Featured Articles</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {featuredPosts.slice(0, 2).map((post) => (
+                <motion.div
+                  key={post.slug}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                >
+                  <Link to={`/blog/${post.slug}`}>
+                    <div className="relative h-60">
+                      <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <span className="bg-blue-600 text-white px-2 py-1 rounded-full text-xs font-semibold mb-2 inline-block">
+                          {post.category.charAt(0).toUpperCase() + post.category.slice(1)}
+                        </span>
+                        <h3 className="text-xl font-bold text-white">{post.title}</h3>
+                      </div>
+                    </div>
+                  </Link>
+                  <div className="p-6">
+                    <p className="text-gray-600 mb-4 line-clamp-2">{post.excerpt}</p>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <img src={post.authorImage} alt={post.author} className="w-8 h-8 rounded-full mr-2" />
+                        <span className="text-sm text-gray-700">{post.author}</span>
+                      </div>
+                      <div className="flex items-center text-sm text-gray-500">
+                        <SafeIcon icon={FiCalendar} className="h-4 w-4 mr-1" />
+                        {format(new Date(post.publishDate), 'MMM dd, yyyy')}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* All Posts */}
+        <div className="mb-16">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            {selectedCategory === 'all' ? 'All Articles' : `${categories.find(c => c.id === selectedCategory)?.name}`}
+            {searchTerm && ` containing "${searchTerm}"`}
+            {filteredPosts.length > 0 ? ` (${filteredPosts.length})` : ''}
+          </h2>
+
+          {filteredPosts.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-600">No articles found. Try adjusting your search or filters.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredPosts.map((post, index) => (
+                <motion.div
+                  key={post.slug}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                >
+                  <Link to={`/blog/${post.slug}`}>
+                    <div className="relative h-48">
+                      <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                      <div className="absolute top-2 right-2">
+                        <span className="bg-blue-600 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                          {post.category.charAt(0).toUpperCase() + post.category.slice(1)}
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                  <div className="p-6">
+                    <Link to={`/blog/${post.slug}`}>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600 transition-colors">
+                        {post.title}
+                      </h3>
+                    </Link>
+                    <p className="text-gray-600 mb-4 line-clamp-2">{post.excerpt}</p>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center text-sm text-gray-500">
+                        <SafeIcon icon={FiCalendar} className="h-4 w-4 mr-1" />
+                        {format(new Date(post.publishDate), 'MMM dd, yyyy')}
+                      </div>
+                      <div className="flex items-center text-sm text-gray-500">
+                        <SafeIcon icon={FiClock} className="h-4 w-4 mr-1" />
+                        {post.readTime}
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-4 border-t border-gray-100">
+                      <Link 
+                        to={`/blog/${post.slug}`}
+                        className="text-blue-600 font-medium hover:text-blue-700 transition-colors flex items-center"
+                      >
+                        Read more
+                        <SafeIcon icon={FiArrowRight} className="ml-1 h-4 w-4" />
+                      </Link>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Popular Posts Sidebar */}
+        <div className="bg-white rounded-lg shadow-lg p-6 mb-12">
+          <div className="flex items-center mb-6">
+            <SafeIcon icon={FiTrendingUp} className="h-5 w-5 text-blue-600 mr-2" />
+            <h2 className="text-xl font-bold text-gray-900">Popular Articles</h2>
+          </div>
+          <div className="space-y-4">
+            {popularPosts.map((post) => (
+              <Link key={post.slug} to={`/blog/${post.slug}`} className="flex items-center hover:bg-gray-50 p-2 rounded-lg transition-colors">
+                <img src={post.image} alt={post.title} className="w-16 h-16 object-cover rounded-lg mr-4" />
+                <div>
+                  <h3 className="font-medium text-gray-900 line-clamp-2">{post.title}</h3>
+                  <div className="flex items-center mt-1 text-xs text-gray-500">
+                    <SafeIcon icon={FiCalendar} className="h-3 w-3 mr-1" />
+                    {format(new Date(post.publishDate), 'MMM dd, yyyy')}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Newsletter */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="bg-blue-600 rounded-2xl p-8 text-center text-white"
+        >
+          <h2 className="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+          <p className="text-blue-100 mb-6">Get the latest articles, resources, and insights delivered to your inbox.</p>
+          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="px-4 py-3 rounded-lg text-gray-900 flex-grow focus:outline-none focus:ring-2 focus:ring-blue-300"
+            />
+            <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+              Subscribe
+            </button>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
