@@ -1,0 +1,6 @@
+<svg width="140" height="40" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="40" height="40" rx="8" fill="#7B61FF"/>
+  <path d="M20 8L10 20L20 32L30 20L20 8Z" fill="white"/>
+  <path d="M20 15L15 20L20 25L25 20L20 15Z" fill="#7B61FF"/>
+  <text x="48" y="25" font-family="Poppins, sans-serif" font-weight="600" font-size="18" fill="#121212">Questera</text>
+</svg>

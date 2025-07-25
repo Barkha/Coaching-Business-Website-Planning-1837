@@ -1,11 +1,10 @@
-# WiTVoices - Coaching Business Website
+# CoachPro - Coaching Business Website
 
 A comprehensive coaching business website built with React, featuring multiple coaching programs, courses, events, and a blog.
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-
 - Node.js (version 14 or higher)
 - npm or yarn package manager
 
@@ -14,19 +13,16 @@ A comprehensive coaching business website built with React, featuring multiple c
 1. **Clone or download the project files** to your local machine
 
 2. **Navigate to the project directory**
-
    ```bash
    cd coaching-business-website
    ```
 
 3. **Install dependencies**
-
    ```bash
    npm install
    ```
 
 4. **Start the development server**
-
    ```bash
    npm run dev
    ```
@@ -90,13 +86,11 @@ coaching-business-website/
 ## 📝 Customization
 
 ### Updating Content
-
 - Modify the data arrays in each page component to update content
 - Replace placeholder images with your own
 - Update company name, colors, and branding in the components
 
 ### Styling
-
 - Edit `tailwind.config.js` for theme customization
 - Modify component styles directly in the JSX files
 - Add custom CSS in `src/index.css` if needed
@@ -106,7 +100,7 @@ coaching-business-website/
 To deploy the website:
 
 1. Build the project:
-   ``` bash
+   ```bash
    npm run build
    ```
 
@@ -117,7 +111,6 @@ To deploy the website:
 ## 📞 Support
 
 If you encounter any issues, check:
-
 1. Node.js version (should be 14+)
 2. All dependencies are installed (`npm install`)
 3. No port conflicts (default port is 5173)
@@ -125,17 +118,14 @@ If you encounter any issues, check:
 ## 🔧 Troubleshooting
 
 **Port already in use?**
-
 - The dev server will automatically try the next available port
 - Or specify a different port: `npm run dev -- --port 3000`
 
 **Dependencies not installing?**
-
 - Try deleting `node_modules` and `package-lock.json`, then run `npm install` again
 - Make sure you have a stable internet connection
 
 **Build errors?**
-
 - Check for any syntax errors in the code
 - Ensure all imports are correct
 - Run `npm run lint` to check for linting issues

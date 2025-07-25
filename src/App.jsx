@@ -9,11 +9,12 @@ import Courses from './pages/Courses';
 import Events from './pages/Events';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import './App.css';
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white font-body">
         <Navbar />
         <motion.main
           initial={{ opacity: 0 }}

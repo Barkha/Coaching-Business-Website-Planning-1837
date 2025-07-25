@@ -3,12 +3,15 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
+import Logo from './Logo';
+import { useTheme } from '../theme/ThemeProvider';
 
 const { FiMenu, FiX } = FiIcons;
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const theme = useTheme();
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -25,11 +28,9 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-blue-600">WitVoices</h1>
-            </Link>
+            <Logo variant="image" />
           </div>
-
+          
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
@@ -38,8 +39,8 @@ const Navbar = () => {
                 to={item.path}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   isActive(item.path)
-                    ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    ? 'text-primary-500 bg-primary-50'
+                    : 'text-gray-700 hover:text-primary-500 hover:bg-gray-50'
                 }`}
               >
                 {item.name}
@@ -47,24 +48,24 @@ const Navbar = () => {
             ))}
             <Link
               to="/subscription"
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+              className="bg-primary-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-primary-600 transition-colors"
             >
               Get Started
             </Link>
           </div>
-
+          
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-600 focus:outline-none"
+              className="text-gray-700 hover:text-primary-500 focus:outline-none"
             >
               <SafeIcon icon={isOpen ? FiX : FiMenu} className="h-6 w-6" />
             </button>
           </div>
         </div>
       </div>
-
+      
       {/* Mobile Navigation */}
       {isOpen && (
         <motion.div
@@ -80,8 +81,8 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                   isActive(item.path)
-                    ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    ? 'text-primary-500 bg-primary-50'
+                    : 'text-gray-700 hover:text-primary-500 hover:bg-gray-50'
                 }`}
               >
                 {item.name}
@@ -90,7 +91,7 @@ const Navbar = () => {
             <Link
               to="/subscription"
               onClick={() => setIsOpen(false)}
-              className="block bg-blue-600 text-white px-3 py-2 rounded-md text-base font-medium hover:bg-blue-700 transition-colors"
+              className="block bg-primary-500 text-white px-3 py-2 rounded-md text-base font-medium hover:bg-primary-600 transition-colors"
             >
               Get Started
             </Link>
