@@ -10,29 +10,14 @@ const { FiArrowRight, FiUsers, FiTarget, FiTrendingUp, FiStar, FiCheck } = FiIco
 const Home = () => {
   const theme = useTheme();
   
-  const features = [
+  const videotestimonials = [
     {
-      icon: FiTarget,
-      title: "Establish Credibility",
-      description: "Being on stage gives you instant credibility. This will improve your ability to communicate, and take questions: perfect for your next job or promotion!"
-    },
-    {
-      icon: FiUsers,
-      title: "Elevate your Network",
-      description: "We all can get lost in our bubble. Speaking at events connects you with a lot of Professionals from different companies - and expand your bubble!"
-    },
-    {
-      icon: FiStar,
-      title: "Increase Visibility",
-      description: "Looking to increase your impact? Get that Promotion? Land that new job? Get funding for your pet project? Find collaborators? Public Speaking can get you there."
-    },
-    {
-      icon: FiTrendingUp,
-      title: "Personal Development",
-      description: "Want to discover YOUR limiting beliefs? Speaking can do that. Want to step out of your comfort zone? Speaking will do that. Want to learn to communicate better? Speaking will help you with that."
+      video: "Tatiana.mp4",
+      name: "Tatiana Montenegro",
+      title: "Sr. Sales Executive, Juniper Networks",
+      description: "Hello My name is Tatiana Montenegro and WitToast has allowed me to go from zero to presentation in three months. So I am extremely excited to be part of the team and the group, and as I finish my first talk, I am very fortunate to have found WitToast and I've been able to organize the presentation and actually do it, and obviously get feedback from my presentation on how I can improve it and make the next ones better. I highly recommend it."
     }
-  ];
-
+  ]
   const testimonials = [
     {
       name: "Sarah Johnson",
@@ -57,7 +42,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-500 to-secondary-500 text-white py-20">
+      <section className="bg-gradient-to-br from-primary-500 to-secondary-600 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -103,6 +88,81 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Clients Section */}
+      <section className="py-5 bg-accent-300">
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+        <div className="grid grid-cols-1 md:grid-cols-6 text-center">
+          <img src="/clients/amazon-rect.png" alt="Amazon" style={{ height:100, width:140 }} />
+          <img src="/clients/Juniper-Networks-rect.png" alt="Juniper" style={{ height:100, width:140 }} />
+          <img src="/clients/Miami-Dade-rect.png" alt="Miami Dade" style={{ height:100, width:140 }} />
+          <img src="/clients/microsoft-rect.png" alt="Microsoft" style={{ height:100, width:140 }} />
+          <img src="/clients/paloalto-rect.png" alt="Palo Alto" style={{ height:100, width:140 }} />
+          <img src="/clients/startree-rect.png" alt="StarTree" style={{ height:100, width:140 }} />
+        </div>
+        </motion.div>
+      </section>
+
+      {/* Why Section */}
+      <section className="py-20 bg-primary-500 text-accent-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+        <h2 className="text-4xl font-bold text-accent-50 mb-4">Ready to transform your career via Public Speaking?</h2>
+        <p className="mb-5">Are you ready to make your mark on the tech industry? Do you dream of sharing your expertise and insights on a prestigious stage?</p>
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          <div>
+            <img src="Tatiana-1.jpg" alt="Tatianan Speaking" />
+          </div>
+          <div className="text-left ml-10 mt-10">
+            <h4>Why This Program?</h4>
+            <p>WiTVoices exists to address the gender disparity in tech conference speakers. The program was born out of the need to empower more women in tech to confidently share their expertise on global stages.</p>
+            <p>Despite the growing number of women in tech, they are underrepresented in speaking roles at conferences and events. This program seeks to change that by providing the necessary tools, resources, and support.</p>
+            <p>By increasing the visibility of women in tech, WiTVoices not only helps individuals grow their careers but also inspires future generations and drives diversity in the industry.</p>
+          </div>
+          <div className="text-right mr-10 mt-10">
+            <h4>How Does It Works?</h4>
+            <p>Self-Paced Courses: Access a library of courses designed to help members build their public speaking skills, from topic selection to mastering delivery techniques.</p>
+            <p>Weekly Group Coaching: Engage in interactive coaching sessions that provide feedback, foster peer learning, and build confidence through regular practice.</p>
+            <p>Quarterly In-Person Events: Participate in events that offer real-world speaking opportunities, allowing members to put their skills into practice in a supportive environment.</p>
+          </div>
+            <div>
+            <img src="group-1.jpg" alt="WiTVoices Speaking Event" />
+          </div>
+          <div>
+            <img src="grou-2.jpg" alt="Keynote Speaker" />
+          </div>
+          <div className="text-left ml-10 mt-10">
+            <h4>Who Is It For?</h4>
+            <p>WiTVoices is designed for women in tech who are passionate about sharing their knowledge and expertise on a larger platform. It caters to:</p>
+            <p>Tech Enthusiasts and Professionals: Women looking to establish themselves as thought leaders in their field.</p>
+            <p>Educators and Students: Those who want to enhance their public speaking skills and share their insights with a broader audience.</p>
+            <p>Community Leaders: Women who are leading initiatives and want to amplify their message.</p>
+            <p>While focused on women in tech, the program is open to anyone who supports the mission of increasing diversity on conference stages.</p>          </div>
+          <div className="text-right mr-10 mt-10">
+            <h4>Training Details</h4>
+            <p>WiTVoices offers free webinars, self paced courses as well as annual membership, providing ongoing support and resources throughout the year.</p>
+            <p>Group coaching sessions are held every week, offering continuous improvement opportunities.</p>
+            <p>In-person events are scheduled four times a year, allowing members to speak and network in different locations.</p>
+            <p>The self-paced courses can be accessed at any time, allowing members to progress according to their own schedules.</p>
+            <p>Members are encouraged to apply to conferences and practice regularly, with WiTVoices offering guidance and feedback as needed.</p>
+          </div>
+          <div>
+            <img src="group-3.jpg" alt="Community" />
+          </div>
+        </div>
+        </motion.div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-20 bg-accent-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -112,35 +172,60 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-primary-600 mb-4">Why Choose {theme.name}?</h2>
-            <p className="text-xl text-primary-600 max-w-3xl mx-auto">
-              Do you long for a refreshing change that brings diversity and unique perspectives to these industry gatherings?
-              <br/>
-              We hear you, loud and clear. Introducing our revolutionary solution: an initiative aimed at empowering more women to take the stage as speakers at tech events worldwide.
-            </p>
+          <h2 className="text-4xl font-bold text-primary-600 mb-4">Member Success Stories</h2>            
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-accent-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="bg-primary-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
-                  <SafeIcon icon={feature.icon} className="h-8 w-8 text-primary-500" />
-                </div>
-                <h3 className="text-xl font-semibold text-primary-600 mb-4">{feature.title}</h3>
-                <p className="text-primary-600">{feature.description}</p>
-              </motion.div>
-            ))}
+          {testimonials.map((testimonial, index) => (
+<div></div>
+          ))}
+          <div className="flex gap-8 mb-8">
+            <div>
+              <video widht="250" controls>
+                <source src="/video/Tatiana.mp4" type="video/mp4"/>
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div className="text-primary-600 content-center">
+            <h3 className="text-xl font-semibold mb-4">Tatiana Montenegro</h3>
+            <h5 className="mb-3">Sr. Sales Executive, Juniper Networks</h5>
+            <p>Hello My name is Tatiana Montenegro and WitToast has allowed me to go from zero to presentation in three months.</p>
+            <p>So I am extremely excited to be part of the team and the group, and as I finish my first talk, I am very fortunate to have found WitToast and I've been able to organize the presentation and actually do it, and obviously get feedback from my presentation on how I can improve it and make the next ones better. I highly recommend it.</p>
+            </div>
+          </div>
+          <hr/>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="text-primary-600">
+            <h3 className="text-xr font-semibold mb-4">Reneida Leon</h3>
+            <h5 className="mb-3">Sr. Sales Executive, Juniper Networks</h5>
+            <p>Hello My name is Tatiana Montenegro and WitToast has allowed me to go from zero to presentation in three months.</p>
+            <p>So I am extremely excited to be part of the team and the group, and as I finish my first talk, I am very fortunate to have found WitToast and I've been able to organize the presentation and actually do it, and obviously get feedback from my presentation on how I can improve it and make the next ones better. I highly recommend it.</p>
+            </div>
+            <div>
+              <video className="text-right, right" width="250" controls>
+                <source src="/video/Reneida.mp4" type="video/mp4"/>
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          <hr/>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <video className="text-right, right" width="250" controls>
+                <source src="/video/Pallavi.mp4" type="video/mp4"/>
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div className="text-primary-600">
+            <h3 className="text-xl font-semibold mb-4">Tatiana Montenegro</h3>
+            <h5 className="mb-3">Sr. Sales Executive, Juniper Networks</h5>
+            <p>Hello My name is Tatiana Montenegro and WitToast has allowed me to go from zero to presentation in three months.</p>
+            <p>So I am extremely excited to be part of the team and the group, and as I finish my first talk, I am very fortunate to have found WitToast and I've been able to organize the presentation and actually do it, and obviously get feedback from my presentation on how I can improve it and make the next ones better. I highly recommend it.</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Programs Preview */}
-      <section className="py-20 bg-gradient-to-br from-primary-500 to-secondary-500">
+      <section className="py-20 bg-gradient-to-br from-primary-500 to-secondary-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -265,7 +350,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-500 to-secondary-400 text-white">
+      <section className="py-20 bg-gradient-to-br from-primary-500 to-secondary-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
